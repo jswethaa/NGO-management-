@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 220 91% 54%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 35 92% 65%;
+    --accent-foreground: 220 10% 20%;
+
+    --background: 0 0% 100%;
+    --foreground: 220 10% 20%;
+
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 20%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+
+    --ring: 220 91% 54%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --primary: 220 91% 54%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 35 92% 65%;
+    --accent-foreground: 220 10% 20%;
+
+    --background: 220 10% 10%;
+    --foreground: 210 40% 98%;
+
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --card: 220 10% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+
+    --ring: 220 91% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.animate-in {
+  animation: animateIn 0.3s ease-in-out;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
