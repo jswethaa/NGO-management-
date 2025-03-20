@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Button from "../common/Button"
+import heroImage from "../../assets/images/pic.jpg"
 
 const HeroSection = () => {
   return (
@@ -63,9 +64,12 @@ const HeroSection = () => {
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="/placeholder.svg?height=600&width=800"
+                src={heroImage}
                 alt="Volunteers helping in a community"
                 className="w-full h-auto object-cover"
+                width={800}
+                height={600}
+                loading="eager"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-accent rounded-2xl -z-10" />
