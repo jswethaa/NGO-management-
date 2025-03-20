@@ -4,6 +4,9 @@ import { ArrowRight } from "lucide-react"
 import Button from "../common/Button"
 import heroImage from "../../assets/images/pic.jpg"
 
+// Base64 encoded placeholder image (a simple gray rectangle)
+const placeholderImage = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9IiNmM2Y0ZjYiLz48dGV4dCB4PSI0MDAiIHk9IjMwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjOWNhM2FmIj5JbWFnZSBQbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4="
+
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
@@ -64,12 +67,15 @@ const HeroSection = () => {
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
               <img
-                src={heroImage}
+                src={heroImage || placeholderImage}
                 alt="Volunteers helping in a community"
                 className="w-full h-auto object-cover"
                 width={800}
                 height={600}
                 loading="eager"
+                onError={(e) => {
+                  e.target.src = placeholderImage;
+                }}
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-accent rounded-2xl -z-10" />
